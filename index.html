@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Sakktábla</title>
+   <script>
+      
+      function egySor( sor,oSzam ) {
+
+         var paros = '', paratlan = '';
+         
+         if( sor % 2 == 1 ) {
+
+            paratlan = '<img src="fekete.jpg">';           
+            
+         }else{
+
+            paros    = '<img src="fekete.jpg">';
+
+         }
+
+         for (var oszlop=1; oszlop<=oSzam; oszlop++) {
+            
+            document.write("<td>");
+         
+               if( oszlop % 2 == 1 ) {
+
+                  document.write( paratlan );
+
+               }else{
+                  
+                  document.write( paros );
+
+               }
+ 
+            document.write("</td>");
+         
+         }
+
+      }
+      function sakktabla() {
+
+         var oSzam = document.getElementById("oSzam").value;
+         var sSzam = document.getElementById("sSzam").value;
+
+         document.write("<table>");
+
+            for (var sor=1; sor<= sSzam; sor++) {
+            
+               document.write("<tr>");
+            
+                 egySor( sor,oSzam ); /* egy sor megjelenítése */
+            
+               document.write("</tr>");
+            
+            }
+
+         document.write("</table>");
+
+      }
+   </script>
+</head>
+<body>
+
+   <h2>Sakktábla rajzolása</h2>
+
+   <input id="oSzam" placeholder="Oszlopok száma..." autofocus>
+   <input id="sSzam" placeholder="Sorok száma...">
+   <button onclick="sakktabla()">Mutasd!</button>
+   
+</body>
+</html>
